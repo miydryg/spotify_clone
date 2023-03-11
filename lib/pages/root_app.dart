@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/pages/home_page.dart';
 import 'package:spotify_clone/theme/colors.dart';
 
 class RootApp extends StatefulWidget {
@@ -30,13 +31,7 @@ class _RootAppState extends State<RootApp> {
     return IndexedStack(
       index: activeTab,
       children: const [
-        Center(
-          child: Text(
-            'Home',
-            style: TextStyle(
-                fontSize: 20, color: white, fontWeight: FontWeight.bold),
-          ),
-        ),
+      HomePage(),
         Center(
           child: Text(
             'Library',
