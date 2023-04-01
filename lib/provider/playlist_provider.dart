@@ -1,8 +1,6 @@
-import 'dart:collection';
+import 'package:flutter/material.dart';
 
-import 'package:flutter/cupertino.dart';
-
-class FavoriteMegaProvider extends ChangeNotifier{
+class MyPlaylistProvider extends ChangeNotifier{
    List<Map<String, String>>  _songs = [];
   List<Map<String, String>> get songs => _songs;
 

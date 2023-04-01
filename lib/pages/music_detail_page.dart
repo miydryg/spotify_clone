@@ -165,28 +165,7 @@ class BodyWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // Expanded(
-                //
-                //   child: ListView.builder(
-                //     scrollDirection: Axis.vertical,
-                //     shrinkWrap: true,
-                //     itemCount: songAlbums.length,
-                //     itemBuilder: (context, index) {
-                //       final song = songs[index];
-                //       return ListTile(
-                //         title: Text(song, style: TextStyle(color: white),),
-                //         trailing: IconButton(
-                //           onPressed: () {
-                //             provider.toggleFavorite(song);
-                //           },
-                //           icon: provider.isExist(song)
-                //               ? const Icon(Icons.favorite, color: Colors.red,)
-                //               : const Icon(Icons.favorite_border, color: white,),
-                //         ),
-                //       );
-                //     },
-                //   ),
-                // ),
+
                 Icon(
                   Icons.add_box_outlined,
                   color: white,

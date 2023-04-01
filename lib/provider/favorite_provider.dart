@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class FavoriteProvider extends ChangeNotifier{
-  List<String> _songs = [];
-  List<String> get songs => _songs;
+  List<Map<String, String>> _songs = [];
+  List<Map<String, String>> get songs => _songs;
 
-  void toggleFavorite(String song){
+  void toggleFavorite(Map<String, String> song){
     final isExist = _songs.contains(song);
     if(isExist) {
       _songs.remove(song);
@@ -14,7 +14,7 @@ class FavoriteProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-  bool isExist(String song){
+  bool isExist(Map<String, String> song){
     final isExist = _songs.contains(song);
     return isExist;
   }

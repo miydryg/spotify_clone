@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:spotify_clone/provider/playlist_provider.dart';
 
-import '../provider/favorite_provider.dart';
 import '../theme/colors.dart';
 
-class FavoritePage extends StatelessWidget {
-  const FavoritePage({Key? key}) : super(key: key);
+class MyPlaylistPage extends StatelessWidget {
+  const MyPlaylistPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<FavoriteProvider>(context);
+    final provider = Provider.of<MyPlaylistProvider>(context);
     final songs = provider.songs;
     return Scaffold(
-        backgroundColor: black,
+      backgroundColor: black,
       appBar: const PreferredSize(
-    preferredSize: Size.fromHeight(50.0), child: GetAppBar()),
+          preferredSize: Size.fromHeight(50.0), child: GetAppBar()),
       body: ListView.builder(
         itemCount: songs.length,
         itemBuilder: (context, index) {
@@ -48,7 +48,7 @@ class GetAppBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Library',
+              'My PlayList',
               style: TextStyle(
                   fontSize: 20, color: white, fontWeight: FontWeight.bold),
             ),

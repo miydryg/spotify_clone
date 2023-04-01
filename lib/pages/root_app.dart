@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/pages/home_page.dart';
+import 'package:spotify_clone/pages/my_playlist_page.dart';
 import 'package:spotify_clone/theme/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:spotify_clone/provider/root_app_provider.dart';
@@ -30,13 +31,7 @@ class RootApp extends StatelessWidget {
       children: const [
       HomePage(),
         FavoritePage(),
-        Center(
-          child: Text(
-            'Search',
-            style: TextStyle(
-                fontSize: 20, color: white, fontWeight: FontWeight.bold),
-          ),
-        ),
+        MyPlaylistPage(),
         Center(
           child: Text(
             'Setting',
