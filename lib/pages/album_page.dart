@@ -7,7 +7,7 @@ import '../provider/favorite_provider.dart';
 import '../theme/colors.dart';
 import 'package:spotify_clone/route/route_music_detail_page.dart';
 
-class AlbumPage extends StatefulWidget {
+class AlbumPage extends StatelessWidget {
   final dynamic song;
   final String title;
   final String img;
@@ -16,16 +16,11 @@ class AlbumPage extends StatefulWidget {
     this.song, required this.title, required this.img,
   }) : super(key: key);
   @override
-  State<AlbumPage> createState() => _AlbumPageState();
-}
-
-class _AlbumPageState extends State<AlbumPage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: AlbumPageBody( img: widget.img,
-        title: widget.title,  song: widget.song['songs'],),
+      body: AlbumPageBody( img: img,
+        title: title,  song: song['songs'],),
     );
   }
 }
