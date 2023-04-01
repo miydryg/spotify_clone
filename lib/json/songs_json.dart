@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+const List song_type_add_to_favorite = [
+  "Imagination" ,
+  "Home_",
+  "Do I Wanna Know?",
+  "Whiskey Sour",
+  "Trees",
+  "R&Earth",
+];
+
 const List song_type_1 = [
   "Music",
   "Rock",

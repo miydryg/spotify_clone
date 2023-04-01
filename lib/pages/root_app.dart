@@ -4,6 +4,10 @@ import 'package:spotify_clone/theme/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:spotify_clone/provider/root_app_provider.dart';
 
+import '../provider/favorite_provider.dart';
+import '../provider/favorite_provider.dart';
+import 'favorite.dart';
+
 class RootApp extends StatelessWidget {
   const RootApp({Key? key}) : super(key: key);
   @override
@@ -25,13 +29,7 @@ class RootApp extends StatelessWidget {
       index: activeProviderTab,
       children: const [
       HomePage(),
-        Center(
-          child: Text(
-            'Library',
-            style: TextStyle(
-                fontSize: 20, color: white, fontWeight: FontWeight.bold),
-          ),
-        ),
+        FavoritePage(),
         Center(
           child: Text(
             'Search',
@@ -62,6 +60,7 @@ class GetFooterBar extends StatelessWidget {
     Icons.search,
     Icons.settings
   ];
+
 
   @override
   Widget build(BuildContext context) {
