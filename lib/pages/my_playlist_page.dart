@@ -26,8 +26,8 @@ class MyPlaylistPage extends StatelessWidget {
                 provider.toggleFavorite(song);
               },
               icon: provider.isExist(song)
-                  ? const Icon(Icons.favorite, color: Colors.red,)
-                  : const Icon(Icons.favorite_border),
+                  ? const Icon(Icons.add_box_outlined, color: primary,)
+                  : const Icon(Icons.add_box),
             ),
           );
         },

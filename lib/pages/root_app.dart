@@ -4,9 +4,6 @@ import 'package:spotify_clone/pages/my_playlist_page.dart';
 import 'package:spotify_clone/theme/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:spotify_clone/provider/root_app_provider.dart';
-
-import '../provider/favorite_provider.dart';
-import '../provider/favorite_provider.dart';
 import 'favorite.dart';
 
 class RootApp extends StatelessWidget {
@@ -52,7 +49,7 @@ class GetFooterBar extends StatelessWidget {
   final List<IconData> items = [
     Icons.home,
     Icons.book,
-    Icons.search,
+    Icons.add_box_outlined,
     Icons.settings
   ];
 

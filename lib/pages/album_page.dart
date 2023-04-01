@@ -9,9 +9,11 @@ import 'package:spotify_clone/route/route_music_detail_page.dart';
 
 class AlbumPage extends StatefulWidget {
   final dynamic song;
+  final String title;
+  final String img;
   const AlbumPage({
     Key? key,
-    this.song,
+    this.song, required this.title, required this.img,
   }) : super(key: key);
   @override
   State<AlbumPage> createState() => _AlbumPageState();
@@ -22,11 +24,20 @@ class _AlbumPageState extends State<AlbumPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: albumPageBody(),
+      body: AlbumPageBody( img: widget.img,
+        title: widget.title,  song: widget.song['songs'],),
     );
   }
+}
 
-  Widget albumPageBody() {
+class AlbumPageBody extends StatelessWidget {
+   const AlbumPageBody({Key? key, required this.img,
+    required this.title,  required this.song, }) : super(key: key);
+  final String img;
+  final String title;
+   final List <Map<String, String>> song;
+  @override
+  Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Stack(
@@ -38,10 +49,10 @@ class _AlbumPageState extends State<AlbumPage> {
                 height: 220,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(widget.song['img']),
+                        image: AssetImage(img),
                         fit: BoxFit.cover)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Padding(
@@ -49,7 +60,7 @@ class _AlbumPageState extends State<AlbumPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(widget.song['title'],
+                    Text(title,
                         style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -57,11 +68,11 @@ class _AlbumPageState extends State<AlbumPage> {
                     Container(
                       decoration: BoxDecoration(
                           color: grey, borderRadius: BorderRadius.circular(5)),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
+                      child: const Padding(
+                        padding: EdgeInsets.only(
                             left: 12, right: 12, top: 8, bottom: 8),
                         child: Text(
-                          'Subcribe',
+                          'Subscribe',
                           style: TextStyle(color: white),
                         ),
                       ),
@@ -69,7 +80,7 @@ class _AlbumPageState extends State<AlbumPage> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               SingleChildScrollView(
@@ -113,7 +124,7 @@ class _AlbumPageState extends State<AlbumPage> {
                                 width: size.width - 210,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       songs[index]['song_count'],
@@ -144,13 +155,13 @@ class _AlbumPageState extends State<AlbumPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
 
               //albumSong(),
               AlbumSong(
-                song: widget.song['songs'],
+                song: song,
               )
             ],
           ),
@@ -183,15 +194,6 @@ class _AlbumPageState extends State<AlbumPage> {
   }
 }
 
-class AlbumPageBody extends StatelessWidget {
-  const AlbumPageBody({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
 
 class AlbumSong extends StatelessWidget {
   const AlbumSong({
@@ -211,17 +213,19 @@ class AlbumSong extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(right: 30, left: 30, bottom: 10),
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(createRoute(index));
+            },
             child: Row(
               children: [
-                Container(
+                SizedBox(
                   width: (size.width - 60) * 0.77,
                   child: Text(
                     "${index + 1} " + songAlbums[index]['title'],
-                    style: TextStyle(color: white),
+                    style: const TextStyle(color: white),
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: (size.width - 60) * 0.23,
                   height: 50,
                   child: Row(
@@ -229,9 +233,9 @@ class AlbumSong extends StatelessWidget {
                     children: [
                       Text(
                         songAlbums[index]['duration'],
-                        style: TextStyle(color: grey, fontSize: 14),
+                        style: const TextStyle(color: grey, fontSize: 14),
                       ),
-                      Container(
+                      SizedBox(
                         width: 25,
                         height: 25,
                         child: IconButton(
@@ -247,7 +251,7 @@ class AlbumSong extends StatelessWidget {
                                   color: Colors.white),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: 25,
                         height: 25,
                         child: Consumer<MyPlaylistProvider>(

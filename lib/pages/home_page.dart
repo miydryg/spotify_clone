@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/json/songs_json.dart';
-import 'package:spotify_clone/pages/album_page.dart';
-import 'package:spotify_clone/pages/music_detail_page.dart';
 import 'package:spotify_clone/theme/colors.dart';
 import 'package:spotify_clone/route/route.dart';
 

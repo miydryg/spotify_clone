@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:spotify_clone/theme/colors.dart';
-
-import '../json/songs_json.dart';
-import '../provider/favorite_provider.dart';
 
 class MusicDetailPage extends StatefulWidget {
   final String title;
@@ -38,12 +34,12 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: black,
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
           preferredSize: Size.fromHeight(50.0), child: GetAppBar()),
       body: BodyWidget(
         img: widget.img,
-        color: widget.color,
         title: widget.title,
+        color: widget.color,
         description: widget.description,
         sliderValue: _currentSliderValue,
         changeSlider: changeSliderValue,
@@ -51,29 +47,6 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
     );
   }
 
-  // Widget GetBody() {
-  //   var size = MediaQuery.of(context).size;
-  //   return SingleChildScrollView(
-  //     child: Column(
-  //       children: [
-  //         Stack(
-  //           children: [
-  //             Padding(
-  //               padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
-  //               child: Container(
-  //                 width: size.width - 60,
-  //                 height: size.height - 360,
-  //                 decoration: BoxDecoration(
-  //                     image: DecorationImage(image: AssetImage(widget.img)),
-  //                     borderRadius: BorderRadius.circular(20)),
-  //               ),
-  //             )
-  //           ],
-  //         )
-  //       ],
-  //     ),
-  //   );
-  // }
 }
 
 class GetAppBar extends StatelessWidget {
@@ -100,8 +73,8 @@ class BodyWidget extends StatelessWidget {
   const BodyWidget({
     Key? key,
     required this.img,
-    required this.color,
     required this.title,
+    required this.color,
     required this.description,
     required this.sliderValue,
     required this.changeSlider,
@@ -117,8 +90,6 @@ class BodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    final provider = Provider.of<FavoriteProvider>(context);
-    List songAlbums = song_type_add_to_favorite;
     return SingleChildScrollView(
       child: Column(children: [
         Stack(
@@ -154,19 +125,19 @@ class BodyWidget extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Container(
+          child: SizedBox(
             width: size.width - 80,
             height: 70,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
-                Icon(
+                const Icon(
                   Icons.add_box_outlined,
                   color: white,
                 ),
@@ -175,12 +146,12 @@ class BodyWidget extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 18,
                           color: white,
                           fontWeight: FontWeight.bold),
                     ),
-                    Container(
+                    SizedBox(
                       width: 150,
                       child: Text(
                         description,
@@ -194,7 +165,7 @@ class BodyWidget extends StatelessWidget {
                     )
                   ],
                 ),
-                Icon(
+                const Icon(
                   Icons.more_vert,
                   color: white,
                 )
@@ -202,7 +173,7 @@ class BodyWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Slider(
@@ -211,7 +182,7 @@ class BodyWidget extends StatelessWidget {
             min: 0,
             max: 200,
             onChanged: changeSlider),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Padding(
@@ -230,7 +201,7 @@ class BodyWidget extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Padding(
@@ -241,8 +212,8 @@ class BodyWidget extends StatelessWidget {
               IconButton(onPressed: (){}, icon:  Icon (Icons.shuffle, color: white.withOpacity(0.5), size: 25,)),
               IconButton(onPressed: (){}, icon:  Icon (Icons.skip_previous, color: white.withOpacity(0.5), size: 25,)),
               IconButton (iconSize: 50,  icon: Container(
-                decoration: BoxDecoration(shape: BoxShape.circle, color: primary),
-                child: Center(
+                decoration: const BoxDecoration(shape: BoxShape.circle, color: primary),
+                child: const Center(
                   child: Icon(Icons.stop, size: 28, color: white,),
                 ),
               ) ,onPressed: (){},),
