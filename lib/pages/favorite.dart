@@ -12,21 +12,27 @@ class FavoritePage extends StatelessWidget {
     final provider = Provider.of<FavoriteProvider>(context);
     final songs = provider.songs;
     return Scaffold(
-        backgroundColor: black,
+      backgroundColor: black,
       appBar: const PreferredSize(
-    preferredSize: Size.fromHeight(50.0), child: GetAppBar()),
+          preferredSize: Size.fromHeight(50.0), child: GetAppBar()),
       body: ListView.builder(
         itemCount: songs.length,
         itemBuilder: (context, index) {
           final song = songs[index];
           return ListTile(
-            title: Text( song.toString(), style: const TextStyle(color: white),),
+            title: Text(
+              song.toString(),
+              style: const TextStyle(color: white),
+            ),
             trailing: IconButton(
               onPressed: () {
                 provider.toggleFavorite(song);
               },
               icon: provider.isExist(song)
-                  ? const Icon(Icons.favorite, color: Colors.red,)
+                  ? const Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    )
                   : const Icon(Icons.favorite_border),
             ),
           );
@@ -35,6 +41,7 @@ class FavoritePage extends StatelessWidget {
     );
   }
 }
+
 class GetAppBar extends StatelessWidget {
   const GetAppBar({Key? key}) : super(key: key);
   @override

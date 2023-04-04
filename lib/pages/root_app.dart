@@ -39,8 +39,6 @@ class RootApp extends StatelessWidget {
       ],
     );
   }
-
-
 }
 
 class GetFooterBar extends StatelessWidget {

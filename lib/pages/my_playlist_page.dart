@@ -20,13 +20,19 @@ class MyPlaylistPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final song = songs[index];
           return ListTile(
-            title: Text( song.toString(), style: const TextStyle(color: white),),
+            title: Text(
+              song.toString(),
+              style: const TextStyle(color: white),
+            ),
             trailing: IconButton(
               onPressed: () {
                 provider.toggleFavorite(song);
               },
               icon: provider.isExist(song)
-                  ? const Icon(Icons.add_box_outlined, color: primary,)
+                  ? const Icon(
+                      Icons.add_box_outlined,
+                      color: primary,
+                    )
                   : const Icon(Icons.add_box),
             ),
           );
@@ -35,6 +41,7 @@ class MyPlaylistPage extends StatelessWidget {
     );
   }
 }
+
 class GetAppBar extends StatelessWidget {
   const GetAppBar({Key? key}) : super(key: key);
   @override

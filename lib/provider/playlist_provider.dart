@@ -9,7 +9,7 @@ class MyPlaylistProvider extends ChangeNotifier{
     if(isExist) {
       _songs.remove(song);
     }else{
-      _songs.add(song );
+      _songs.add(song);
     }
     notifyListeners();
   }

@@ -46,7 +46,6 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
       ),
     );
   }
-
 }
 
 class GetAppBar extends StatelessWidget {
@@ -136,7 +135,6 @@ class BodyWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
                 const Icon(
                   Icons.add_box_outlined,
                   color: white,
@@ -209,23 +207,52 @@ class BodyWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(onPressed: (){}, icon:  Icon (Icons.shuffle, color: white.withOpacity(0.5), size: 25,)),
-              IconButton(onPressed: (){}, icon:  Icon (Icons.skip_previous, color: white.withOpacity(0.5), size: 25,)),
-              IconButton (iconSize: 50,  icon: Container(
-                decoration: const BoxDecoration(shape: BoxShape.circle, color: primary),
-                child: const Center(
-                  child: Icon(Icons.stop, size: 28, color: white,),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.shuffle,
+                    color: white.withOpacity(0.5),
+                    size: 25,
+                  )),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.skip_previous,
+                    color: white.withOpacity(0.5),
+                    size: 25,
+                  )),
+              IconButton(
+                iconSize: 50,
+                icon: Container(
+                  decoration: const BoxDecoration(
+                      shape: BoxShape.circle, color: primary),
+                  child: const Center(
+                    child: Icon(
+                      Icons.stop,
+                      size: 28,
+                      color: white,
+                    ),
+                  ),
                 ),
-              ) ,onPressed: (){},),
-
-              IconButton(onPressed: (){}, icon:  Icon (Icons.skip_next, color: white.withOpacity(0.5), size: 25,)),
-              IconButton(onPressed: (){}, icon:  Icon (Icons.repeat, color: white.withOpacity(0.5), size: 25,))
-
-
+                onPressed: () {},
+              ),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.skip_next,
+                    color: white.withOpacity(0.5),
+                    size: 25,
+                  )),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.repeat,
+                    color: white.withOpacity(0.5),
+                    size: 25,
+                  ))
             ],
           ),
         ),
-
       ]),
     );
   }
