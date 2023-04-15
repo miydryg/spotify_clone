@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const List song_type_add_to_favorite = [
-  "Imagination" ,
+  "Imagination",
   "Home_",
   "Do I Wanna Know?",
   "Whiskey Sour",

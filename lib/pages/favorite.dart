@@ -21,7 +21,7 @@ class FavoritePage extends StatelessWidget {
           final song = songs[index];
           return ListTile(
             title: Text(
-              song.toString(),
+              song['title'] ?? ' ',
               style: const TextStyle(color: white),
             ),
             trailing: IconButton(
